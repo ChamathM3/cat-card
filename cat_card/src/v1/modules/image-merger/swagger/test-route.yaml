@@ -1,0 +1,33 @@
+paths:
+  /image-generator/test:
+    ##################### GET ##########################
+    get:
+      tags:
+        - Image-Generator
+      summary: "Test end point"
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: testValue
+          type: string
+          description: Enter test value
+          required: true
+      responses:
+        200:
+          description: success
+          schema:
+            type: "object"
+            properties:
+              code:
+                type: "integer"
+                default: 200
+              data:
+                type: "string"
+              success:
+                type: "boolean"
+                default: true
+        404:
+          description: Not Found
+        500:
+          description: Internal Server Error
